@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BHOONIWEBPC_SQLEXPRESS.CompetionTaskDatawarehouse"
+  DTS:DTSID="{F85800E6-2978-48AC-8739-43B9CAEA24D3}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=BHOONIWEBPC\SQLEXPRESS;Initial Catalog=CompetionTaskDatawarehouse;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

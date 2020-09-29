@@ -1,0 +1,1826 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/7/2020 3:07:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BHOONIWEBPC"
+  DTS:CreatorName="BHOONIWEBPC\bhuva"
+  DTS:DTSID="{BC709E50-089A-4B68-9D99-B5F680186832}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="3081"
+  DTS:ObjectName="School"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{59912447-EF1C-4D66-8AB3-047340017105}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load School Database table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{280D089F-4848-4F0A-B461-9392376600FC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load School Database table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load School Database table\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSchool]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load School Database table\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F85800E6-2978-48AC-8739-43B9CAEA24D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[BHOONIWEBPC_SQLEXPRESS.CompetionTaskDatawarehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[SchoolMaster_Id]"
+                      cachedDataType="i4"
+                      cachedName="SchoolMaster_Id"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolId]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SchoolMaster_Id]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[street]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="street"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_address]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[street]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[school_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="school_name"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_name]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_name]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[student_number]"
+                      cachedDataType="r8"
+                      cachedName="student_number"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[student_number]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[student_number]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[ICSEA_Value]"
+                      cachedDataType="i4"
+                      cachedName="ICSEA_Value"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ICSEA_Value]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ICSEA_Value]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[selective_school]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="selective_school"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[selective_school]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[selective_school]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[level_of_schooling]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="level_of_schooling"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Level_of_schooling]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[level_of_schooling]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[school_specialty_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="school_specialty_type"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_specialty_type]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_specialty_type]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[school_subtype]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="school_subtype"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_subtype]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_subtype]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[school_gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="school_gender"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_gender]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_gender]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].Columns[school_code]"
+                      cachedDataType="i4"
+                      cachedName="school_code"
+                      externalMetadataColumnId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_code]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolKey]"
+                      dataType="i4"
+                      name="SchoolKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolId]"
+                      dataType="i4"
+                      name="SchoolId" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_address]"
+                      dataType="wstr"
+                      length="255"
+                      name="school_address" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="school_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[student_number]"
+                      dataType="r8"
+                      name="student_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ICSEA_Value]"
+                      dataType="i4"
+                      name="ICSEA_Value" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[selective_school]"
+                      dataType="wstr"
+                      length="255"
+                      name="selective_school" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Level_of_schooling]"
+                      dataType="wstr"
+                      length="225"
+                      name="Level_of_schooling" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_specialty_type]"
+                      dataType="wstr"
+                      length="225"
+                      name="school_specialty_type" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_subtype]"
+                      dataType="wstr"
+                      length="225"
+                      name="school_subtype" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_gender]"
+                      dataType="wstr"
+                      length="225"
+                      name="school_gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[school_code]"
+                      dataType="i4"
+                      name="school_code" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load School Database table\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load School Database table\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load School Database table\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load School Database table\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimSchool] SET [ICSEA_Value] = ?,[Level_of_schooling] = ?,[school_address] = ?,[school_code] = ?,[school_gender] = ?,[school_name] = ?,[school_specialty_type] = ?,[school_subtype] = ?,[selective_school] = ?,[student_number] = ? WHERE [SchoolId] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load School Database table\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{F85800E6-2978-48AC-8739-43B9CAEA24D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[BHOONIWEBPC_SQLEXPRESS.CompetionTaskDatawarehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[ICSEA_Value]"
+                      cachedDataType="i4"
+                      cachedName="ICSEA_Value"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ICSEA_Value]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[level_of_schooling]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="level_of_schooling"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[level_of_schooling]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[street]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="street"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[street]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[school_code]"
+                      cachedDataType="i4"
+                      cachedName="school_code"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_code]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[school_gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="school_gender"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_gender]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[school_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="school_name"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_name]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[school_specialty_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="school_specialty_type"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_specialty_type]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[school_subtype]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="school_subtype"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_subtype]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[SchoolMaster_Id]"
+                      cachedDataType="i4"
+                      cachedName="SchoolMaster_Id"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SchoolMaster_Id]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[selective_school]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="selective_school"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[selective_school]" />
+                    <inputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].Columns[student_number]"
+                      cachedDataType="r8"
+                      cachedName="student_number"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[student_number]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="225"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="225"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="225"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="wstr"
+                      length="225"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="r8"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="i4"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load School Database table\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load School Database table\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load School Database table\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SchoolMaster]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load School Database table\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{50AC80C2-947D-48DA-88E1-B3DE2AB734EF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[BHOONIWEBPC_SQLEXPRESS.CompetitionTask]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SchoolMaster_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SchoolMaster_Id]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SchoolMaster_Id]"
+                      name="SchoolMaster_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_code]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_code]"
+                      name="school_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[AgeID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AgeID]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[AgeID]"
+                      name="AgeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_name]"
+                      length="50"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_name]"
+                      name="school_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[street]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[street]"
+                      name="street"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[town_suburb]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[town_suburb]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[town_suburb]"
+                      name="town_suburb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[postcode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[postcode]"
+                      name="postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[student_number]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[student_number]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[student_number]"
+                      name="student_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[indigenous_pct]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[indigenous_pct]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[indigenous_pct]"
+                      name="indigenous_pct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[lbote_pct]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lbote_pct]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[lbote_pct]"
+                      name="lbote_pct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ICSEA_Value]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ICSEA_Value]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ICSEA_Value]"
+                      name="ICSEA_Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[level_of_schooling]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[level_of_schooling]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[level_of_schooling]"
+                      name="level_of_schooling"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[selective_school]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[selective_school]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[selective_school]"
+                      name="selective_school"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[opportunity_class]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opportunity_class]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[opportunity_class]"
+                      name="opportunity_class"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_specialty_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_specialty_type]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_specialty_type]"
+                      name="school_specialty_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_subtype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_subtype]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_subtype]"
+                      name="school_subtype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[support_classes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[support_classes]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[support_classes]"
+                      name="support_classes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[preschool_ind]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[preschool_ind]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[preschool_ind]"
+                      name="preschool_ind"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[distance_education]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[distance_education]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[distance_education]"
+                      name="distance_education"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[intensive_english_centre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[intensive_english_centre]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[intensive_english_centre]"
+                      name="intensive_english_centre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_gender]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_gender]"
+                      name="school_gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[phone]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_email]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_email]"
+                      name="school_email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[fax]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fax]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[fax]"
+                      name="fax"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[late_opening_school]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[late_opening_school]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[late_opening_school]"
+                      name="late_opening_school"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_1st_teacher]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_1st_teacher]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_1st_teacher]"
+                      name="date_1st_teacher"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[lga]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lga]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[lga]"
+                      name="lga"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[electorate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[electorate]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[electorate]"
+                      name="electorate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[fed_electorate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fed_electorate]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[fed_electorate]"
+                      name="fed_electorate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[operational_directorate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[operational_directorate]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[operational_directorate]"
+                      name="operational_directorate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[principal_network]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[principal_network]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[principal_network]"
+                      name="principal_network"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[facs_district]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[facs_district]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[facs_district]"
+                      name="facs_district"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_health_district]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_health_district]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_health_district]"
+                      name="local_health_district"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[aecg_region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[aecg_region]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[aecg_region]"
+                      name="aecg_region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASGS_remoteness]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASGS_remoteness]"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASGS_remoteness]"
+                      name="ASGS_remoteness"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]"
+                      name="latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]"
+                      name="longitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_extracted]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_extracted]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_extracted]"
+                      name="date_extracted"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SchoolMaster_Id]"
+                      dataType="i4"
+                      name="SchoolMaster_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_code]"
+                      dataType="i4"
+                      name="school_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AgeID]"
+                      dataType="r8"
+                      name="AgeID" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="school_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      dataType="wstr"
+                      length="255"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[town_suburb]"
+                      dataType="wstr"
+                      length="255"
+                      name="town_suburb" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
+                      dataType="r8"
+                      name="postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[student_number]"
+                      dataType="r8"
+                      name="student_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[indigenous_pct]"
+                      dataType="r8"
+                      name="indigenous_pct" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lbote_pct]"
+                      dataType="r8"
+                      name="lbote_pct" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ICSEA_Value]"
+                      dataType="i4"
+                      name="ICSEA_Value" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[level_of_schooling]"
+                      dataType="wstr"
+                      length="255"
+                      name="level_of_schooling" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[selective_school]"
+                      dataType="wstr"
+                      length="255"
+                      name="selective_school" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opportunity_class]"
+                      dataType="wstr"
+                      length="255"
+                      name="opportunity_class" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_specialty_type]"
+                      dataType="wstr"
+                      length="255"
+                      name="school_specialty_type" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_subtype]"
+                      dataType="wstr"
+                      length="255"
+                      name="school_subtype" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[support_classes]"
+                      dataType="wstr"
+                      length="255"
+                      name="support_classes" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[preschool_ind]"
+                      dataType="wstr"
+                      length="255"
+                      name="preschool_ind" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[distance_education]"
+                      dataType="wstr"
+                      length="255"
+                      name="distance_education" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[intensive_english_centre]"
+                      dataType="wstr"
+                      length="255"
+                      name="intensive_english_centre" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="school_gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      dataType="r8"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[school_email]"
+                      dataType="wstr"
+                      length="255"
+                      name="school_email" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fax]"
+                      dataType="wstr"
+                      length="255"
+                      name="fax" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[late_opening_school]"
+                      dataType="wstr"
+                      length="255"
+                      name="late_opening_school" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_1st_teacher]"
+                      dataType="wstr"
+                      length="255"
+                      name="date_1st_teacher" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lga]"
+                      dataType="wstr"
+                      length="255"
+                      name="lga" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[electorate]"
+                      dataType="wstr"
+                      length="255"
+                      name="electorate" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fed_electorate]"
+                      dataType="wstr"
+                      length="255"
+                      name="fed_electorate" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[operational_directorate]"
+                      dataType="wstr"
+                      length="255"
+                      name="operational_directorate" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[principal_network]"
+                      dataType="wstr"
+                      length="255"
+                      name="principal_network" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[facs_district]"
+                      dataType="wstr"
+                      length="255"
+                      name="facs_district" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_health_district]"
+                      dataType="wstr"
+                      length="255"
+                      name="local_health_district" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[aecg_region]"
+                      dataType="wstr"
+                      length="255"
+                      name="aecg_region" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASGS_remoteness]"
+                      dataType="wstr"
+                      length="255"
+                      name="ASGS_remoteness" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                      dataType="r8"
+                      name="latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                      dataType="r8"
+                      name="longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_extracted]"
+                      dataType="dbTimeStamp"
+                      name="date_extracted" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SchoolMaster_Id]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SchoolMaster_Id]"
+                      name="SchoolMaster_Id" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_code]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_code]"
+                      name="school_code" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AgeID]"
+                      dataType="r8"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AgeID]"
+                      name="AgeID" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_name]"
+                      name="school_name" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[street]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[street]"
+                      name="street" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[town_suburb]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[town_suburb]"
+                      name="town_suburb" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[postcode]"
+                      dataType="r8"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[postcode]"
+                      name="postcode" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[student_number]"
+                      dataType="r8"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[student_number]"
+                      name="student_number" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[indigenous_pct]"
+                      dataType="r8"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[indigenous_pct]"
+                      name="indigenous_pct" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lbote_pct]"
+                      dataType="r8"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lbote_pct]"
+                      name="lbote_pct" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ICSEA_Value]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ICSEA_Value]"
+                      name="ICSEA_Value" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[level_of_schooling]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[level_of_schooling]"
+                      name="level_of_schooling" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[selective_school]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[selective_school]"
+                      name="selective_school" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opportunity_class]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opportunity_class]"
+                      name="opportunity_class" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_specialty_type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_specialty_type]"
+                      name="school_specialty_type" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_subtype]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_subtype]"
+                      name="school_subtype" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[support_classes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[support_classes]"
+                      name="support_classes" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[preschool_ind]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[preschool_ind]"
+                      name="preschool_ind" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[distance_education]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[distance_education]"
+                      name="distance_education" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[intensive_english_centre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[intensive_english_centre]"
+                      name="intensive_english_centre" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_gender]"
+                      name="school_gender" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      dataType="r8"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[school_email]"
+                      name="school_email" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fax]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fax]"
+                      name="fax" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[late_opening_school]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[late_opening_school]"
+                      name="late_opening_school" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_1st_teacher]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_1st_teacher]"
+                      name="date_1st_teacher" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lga]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lga]"
+                      name="lga" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[electorate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[electorate]"
+                      name="electorate" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fed_electorate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fed_electorate]"
+                      name="fed_electorate" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[operational_directorate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[operational_directorate]"
+                      name="operational_directorate" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[principal_network]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[principal_network]"
+                      name="principal_network" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[facs_district]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[facs_district]"
+                      name="facs_district" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[local_health_district]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[local_health_district]"
+                      name="local_health_district" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[aecg_region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[aecg_region]"
+                      name="aecg_region" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASGS_remoteness]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASGS_remoteness]"
+                      name="ASGS_remoteness" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                      dataType="r8"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                      name="latitude" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                      dataType="r8"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                      name="longitude" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_extracted]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_extracted]"
+                      name="date_extracted" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load School Database table\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [school_name], [SchoolId] FROM [dbo].[DimSchool]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load School Database table\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{F85800E6-2978-48AC-8739-43B9CAEA24D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[BHOONIWEBPC_SQLEXPRESS.CompetionTaskDatawarehouse]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[school_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="school_name"
+                      externalMetadataColumnId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[school_name]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[school_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SchoolMaster_Id]"
+                      cachedDataType="i4"
+                      cachedName="SchoolMaster_Id"
+                      externalMetadataColumnId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SchoolId]"
+                      lineageId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SchoolMaster_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[school_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="school_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SchoolId]"
+                      dataType="i4"
+                      name="SchoolId" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load School Database table\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load School Database table\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load School Database table\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load School Database table\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load School Database table\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load School Database table\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load School Database table.Paths[Inferred Member Updates Output]"
+              endId="Package\Load School Database table\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\Load School Database table\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\Load School Database table.Paths[New Output]"
+              endId="Package\Load School Database table\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Load School Database table\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Load School Database table.Paths[OLE DB Source Output]"
+              endId="Package\Load School Database table\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load School Database table\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="210.666666666667,42.6666666666667"
+          Id="Package\Load School Database table"
+          TopLeft="88.7499986775219,48.099999139905" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load School Database table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Load School Database table\OLE DB Source"
+          TopLeft="238.166666666667,5.50000000000004" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Load School Database table\Slowly Changing Dimension"
+          TopLeft="208.833333333333,108.166666666667" />
+        <EdgeLayout
+          Id="Package\Load School Database table.Paths[OLE DB Source Output]"
+          TopLeft="313.5,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Load School Database table\Insert Destination"
+          TopLeft="5.50000000000006,210.833333333334" />
+        <EdgeLayout
+          Id="Package\Load School Database table.Paths[New Output]"
+          TopLeft="279.944444444444,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-192.444444444444,60.0000000000001"
+              Start="0,0"
+              End="-192.444444444444,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2730720606827"
+                    Point2="0,24.2730720606827"
+                    Point3="-4,24.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-188.444444444444,24.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-188.444444444444,24.2730720606827"
+                    Point2="-192.444444444444,24.2730720606827"
+                    Point3="-192.444444444444,28.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-192.444444444444,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-123.313608940972,29.2730720606827,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Load School Database table\OLE DB Command"
+          TopLeft="230.166666666667,210.833333333334" />
+        <EdgeLayout
+          Id="Package\Load School Database table.Paths[Inferred Member Updates Output]"
+          TopLeft="347.055555555556,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.5555555555555,60.0000000000001"
+              Start="0,0"
+              End="-33.5555555555555,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2730720606827"
+                    Point2="0,24.2730720606827"
+                    Point3="-4,24.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-29.5555555555555,24.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5555555555555,24.2730720606827"
+                    Point2="-33.5555555555555,24.2730720606827"
+                    Point3="-33.5555555555555,28.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-33.5555555555555,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.1807660590278,29.2730720606827,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load School Database table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load School Database table\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{F85800E6-2978-48AC-8739-43B9CAEA24D3}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimSchool]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[ICSEA_Value]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ICSEA_Value&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[level_of_schooling]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Level_of_schooling&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[street]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;school_address&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[school_code]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;school_code&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[school_gender]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;school_gender&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[school_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;school_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[school_specialty_type]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;school_specialty_type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[school_subtype]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;school_subtype&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[SchoolMaster_Id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SchoolId&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[selective_school]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;selective_school&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[student_number]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;student_number&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
